@@ -1,53 +1,51 @@
 const skillCategories = [
   {
-    title: "Frontend Development",
-    description: "Building responsive, accessible interfaces with modern React patterns including hooks, context, and state management.",
-    skills: ["React", "JavaScript", "TypeScript", "HTML5/CSS3", "Tailwind CSS", "Redux", "Next.js"],
+    title: "Frontend",
+    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "HTML/CSS"],
   },
   {
-    title: "Backend Development",
-    description: "Designing RESTful APIs and server-side logic with Node.js, focusing on security, performance, and clean architecture.",
-    skills: ["Node.js", "Express.js", "REST APIs", "Authentication", "JWT", "OAuth2", "API Design"],
+    title: "Backend",
+    skills: ["Node.js", "Express", "REST APIs", "GraphQL", "Authentication"],
   },
   {
-    title: "Database & Storage",
-    description: "Working with both SQL and NoSQL databases, designing schemas, writing optimized queries, and managing data integrity.",
-    skills: ["PostgreSQL", "MongoDB", "Prisma", "Mongoose", "Redis", "Data Modeling"],
+    title: "Database",
+    skills: ["PostgreSQL", "MongoDB", "Prisma", "Redis"],
   },
   {
-    title: "DevOps & Tools",
-    description: "Deploying and maintaining applications in cloud environments with CI/CD pipelines and containerization.",
-    skills: ["Git/GitHub", "Docker", "AWS", "Vercel", "Railway", "Linux", "CI/CD"],
+    title: "Tools & DevOps",
+    skills: ["Git", "Docker", "AWS", "Vercel", "CI/CD"],
   },
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 bg-gradient-to-b from-background to-card/50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">Technical Skills</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            My <span className="gradient-text">Tech Stack</span>
-          </h3>
-          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
-            A comprehensive toolkit refined through real-world projects and continuous learning.
+    <section id="skills" className="py-16 md:py-20 lg:py-24">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center opacity-0 animate-fade-up">
+            Skills
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">
+            Technical Expertise
+          </h2>
+          <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up animation-delay-200">
+            Technologies I work with to build modern web applications.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
               <div
                 key={category.title}
-                className="p-8 rounded-2xl bg-card border border-border card-hover"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <h4 className="text-xl font-semibold mb-3">{category.title}</h4>
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                  {category.description}
-                </p>
+                className={`p-6 rounded-lg bg-background border border-border hover-lift opacity-0 animate-fade-up`}
+                style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <h3 className="text-lg font-semibold text-foreground mb-4">
+                  {category.title}
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <span key={skill} className="skill-badge">
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-sm bg-muted text-foreground rounded-md hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
                       {skill}
                     </span>
                   ))}

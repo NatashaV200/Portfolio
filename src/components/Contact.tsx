@@ -1,9 +1,9 @@
+import { useToast } from "@/hooks/use-toast";
+import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
-import { Send, Mail, Github, Linkedin, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
   const { toast } = useToast();
@@ -21,8 +21,6 @@ export function Contact() {
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
-    } else if (formData.name.length > 100) {
-      newErrors.name = "Name must be less than 100 characters";
     }
 
     if (!formData.email.trim()) {
@@ -33,14 +31,10 @@ export function Contact() {
 
     if (!formData.subject.trim()) {
       newErrors.subject = "Subject is required";
-    } else if (formData.subject.length > 200) {
-      newErrors.subject = "Subject must be less than 200 characters";
     }
 
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (formData.message.length > 2000) {
-      newErrors.message = "Message must be less than 2000 characters";
     }
 
     setErrors(newErrors);
@@ -54,11 +48,10 @@ export function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message sent!",
+      title: "Message sent",
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
@@ -66,7 +59,9 @@ export function Contact() {
     setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
@@ -75,78 +70,75 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32">
-      <div className="container mx-auto px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="section-heading text-center">Get in Touch</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Let's <span className="gradient-text">Work Together</span>
-          </h3>
-          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+    <section id="contact" className="py-16 md:py-20 lg:py-24 bg-muted/50">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center opacity-0 animate-fade-up">
+            Contact
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">
+            Get in Touch
+          </h2>
+          <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up animation-delay-200">
+            Have a project in mind or want to discuss opportunities? I'd love to
+            hear from you.
           </p>
 
-          <div className="grid md:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
-            <div className="md:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 opacity-0 animate-slide-left animation-delay-300">
               <div>
-                <h4 className="text-lg font-semibold mb-6">Contact Information</h4>
+                <h3 className="text-base font-semibold text-foreground mb-4">
+                  Contact Information
+                </h3>
                 <div className="space-y-4">
                   <a
                     href="mailto:faith@example.com"
-                    className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="text-foreground">faith@example.com</p>
-                    </div>
+                    className="flex items-center gap-3 text-foreground/70 hover:text-foreground transition-colors group">
+                    <Mail className="h-5 w-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span>faithnatasha2024@gmail.com</span>
                   </a>
-
-                  <div className="flex items-center gap-4 text-muted-foreground">
-                    <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="text-foreground">Available for Remote Work</p>
-                    </div>
+                  <div className="flex items-center gap-3 text-foreground/70">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Available for Remote Work</span>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-lg font-semibold mb-4">Connect</h4>
-                <div className="flex gap-4">
+                <h3 className="text-base font-semibold text-foreground mb-4">
+                  Social
+                </h3>
+                <div className="flex gap-3">
                   <a
-                    href="https://github.com/faithnatasha"
+                    href="https://github.com/faith200"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/20 transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github size={20} />
+                    className="p-2.5 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors"
+                    aria-label="GitHub">
+                    <Github size={18} />
                   </a>
                   <a
                     href="https://linkedin.com/in/faithnatasha"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/20 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin size={20} />
+                    className="p-2.5 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors"
+                    aria-label="LinkedIn">
+                    <Linkedin size={18} />
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="md:col-span-3 space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
+            <form
+              onSubmit={handleSubmit}
+              className="lg:col-span-3 space-y-5 opacity-0 animate-slide-right animation-delay-300">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground mb-2">
                     Name
                   </label>
                   <Input
@@ -155,14 +147,18 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className={errors.name ? "border-destructive" : ""}
+                    className={`transition-shadow focus:shadow-md ${errors.name ? "border-destructive" : ""}`}
                   />
                   {errors.name && (
-                    <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.name}
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-foreground mb-2">
                     Email
                   </label>
                   <Input
@@ -172,16 +168,20 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
-                    className={errors.email ? "border-destructive" : ""}
+                    className={`transition-shadow focus:shadow-md ${errors.email ? "border-destructive" : ""}`}
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.email}
+                    </p>
                   )}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-foreground mb-2">
                   Subject
                 </label>
                 <Input
@@ -190,15 +190,19 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="What's this about?"
-                  className={errors.subject ? "border-destructive" : ""}
+                  className={`transition-shadow focus:shadow-md ${errors.subject ? "border-destructive" : ""}`}
                 />
                 {errors.subject && (
-                  <p className="text-sm text-destructive mt-1">{errors.subject}</p>
+                  <p className="text-sm text-destructive mt-1">
+                    {errors.subject}
+                  </p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-foreground mb-2">
                   Message
                 </label>
                 <Textarea
@@ -207,15 +211,20 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your project..."
-                  rows={6}
-                  className={errors.message ? "border-destructive" : ""}
+                  rows={5}
+                  className={`transition-shadow focus:shadow-md ${errors.message ? "border-destructive" : ""}`}
                 />
                 {errors.message && (
-                  <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                  <p className="text-sm text-destructive mt-1">
+                    {errors.message}
+                  </p>
                 )}
               </div>
 
-              <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="w-full sm:w-auto">
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="hover-lift">
                 {isSubmitting ? (
                   "Sending..."
                 ) : (

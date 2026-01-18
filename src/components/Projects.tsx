@@ -1,160 +1,94 @@
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { Github } from "lucide-react";
 import { Button } from "./ui/button";
 
 const projects = [
   {
     title: "TaskFlow Pro",
-    problem: "Teams struggle to coordinate tasks across multiple projects, leading to missed deadlines and communication gaps.",
-    description: "A real-time project management platform with kanban boards, team collaboration, and automated workflow triggers.",
-    tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Redis", "JWT Auth"],
-    features: [
-      "Real-time collaboration with WebSocket updates",
-      "Role-based access control with team workspaces",
-      "Automated task assignments and deadline notifications",
-      "Integration with Slack and email notifications",
-    ],
-    architecture: "Microservices architecture with separate services for auth, notifications, and core logic. Redis for caching and pub/sub messaging.",
+    description:
+      "A real-time project management platform with kanban boards, team collaboration, and automated workflow triggers.",
+    tech: ["React", "Node.js", "PostgreSQL", "Socket.io"],
     github: "https://github.com/faithnatasha/taskflow-pro",
-    live: "https://taskflow-pro.demo.com",
-    featured: true,
   },
   {
     title: "SecureVault API",
-    problem: "Small businesses need a secure way to manage API keys and secrets across development environments.",
-    description: "An encrypted secrets management service with team access controls, audit logging, and environment-specific configurations.",
-    tech: ["Node.js", "Express", "MongoDB", "AES-256", "OAuth2", "Docker"],
-    features: [
-      "End-to-end encryption for all stored secrets",
-      "Environment segregation (dev, staging, production)",
-      "Complete audit trail with IP logging",
-      "SDK clients for multiple languages",
-    ],
-    architecture: "Stateless API design with encrypted MongoDB storage. All secrets encrypted at rest and in transit using AES-256-GCM.",
+    description:
+      "An encrypted secrets management service with team access controls and audit logging for development teams.",
+    tech: ["Node.js", "Express", "MongoDB", "Docker"],
     github: "https://github.com/faithnatasha/securevault-api",
-    live: "https://securevault-api.demo.com",
-    featured: true,
   },
   {
     title: "HealthTrack Dashboard",
-    problem: "Healthcare providers lack a unified view of patient wellness metrics from various wearable devices.",
-    description: "A patient wellness monitoring dashboard aggregating data from multiple health APIs with trend analysis and alerts.",
-    tech: ["React", "TypeScript", "Express", "PostgreSQL", "Chart.js", "REST APIs"],
-    features: [
-      "Real-time sync with Fitbit, Apple Health APIs",
-      "Customizable alert thresholds per patient",
-      "Historical trend visualization and reporting",
-      "HIPAA-compliant data handling",
-    ],
-    architecture: "Event-driven architecture with background workers for API polling. PostgreSQL with row-level security for multi-tenant data isolation.",
+    description:
+      "A patient wellness monitoring dashboard aggregating data from multiple health APIs with trend analysis.",
+    tech: ["React", "TypeScript", "PostgreSQL", "Chart.js"],
     github: "https://github.com/faithnatasha/healthtrack",
-    live: "https://healthtrack.demo.com",
-    featured: false,
   },
   {
     title: "E-Commerce Platform",
-    problem: "Independent retailers need a modern, customizable storefront without enterprise-level complexity.",
-    description: "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "Cloudinary", "SendGrid"],
-    features: [
-      "Multi-currency support with Stripe integration",
-      "Real-time inventory tracking and low-stock alerts",
-      "Customer analytics and purchase insights",
-      "Automated email sequences for abandoned carts",
-    ],
-    architecture: "Modular monolith with clear domain boundaries. Webhook-driven payment processing with idempotency guarantees.",
+    description:
+      "A full-featured e-commerce solution with inventory management, payment processing, and analytics.",
+    tech: ["React", "Node.js", "MongoDB", "Daraja API"],
     github: "https://github.com/faithnatasha/ecommerce-platform",
-    live: "https://ecommerce.demo.com",
-    featured: false,
   },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-32">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center">Featured Work</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Projects I've <span className="gradient-text">Built</span>
-          </h3>
-          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
-            A selection of full-stack applications demonstrating end-to-end development capabilities.
+    <section id="projects" className="py-16 md:py-20 lg:py-24 bg-muted/50">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center opacity-0 animate-fade-up">
+            Projects
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">
+            Selected Work
+          </h2>
+          <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up animation-delay-200">
+            A selection of projects demonstrating full-stack development
+            capabilities.
           </p>
 
-          <div className="space-y-16">
+          <div className="grid gap-6">
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className={`group rounded-2xl bg-card border border-border overflow-hidden card-hover ${
-                  project.featured ? "md:grid md:grid-cols-2" : ""
-                }`}
-              >
-                <div className="p-8 md:p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    {project.featured && (
-                      <span className="text-xs font-medium px-3 py-1 rounded-full bg-primary/20 text-primary">
-                        Featured
-                      </span>
-                    )}
-                    <span className="text-xs mono text-muted-foreground">
-                      Project {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  <h4 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                className="p-6 rounded-lg bg-background border border-border hover-lift opacity-0 animate-fade-up"
+                style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <h3 className="text-xl font-semibold text-foreground">
                     {project.title}
-                  </h4>
-
-                  <p className="text-primary/80 text-sm mb-4 italic">
-                    "{project.problem}"
-                  </p>
-
-                  <p className="text-muted-foreground mb-6">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech) => (
-                      <span key={tech} className="text-xs mono px-2 py-1 rounded bg-secondary text-muted-foreground">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4">
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4" />
-                        Code
-                      </a>
-                    </Button>
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
-                        Live Demo
+                  </h3>
+                  <div className="flex gap-2 flex-shrink-0">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      asChild
+                      className="hover-scale">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="View source code">
+                        <Github size={16} />
+                        <span className="ml-1">Code</span>
                       </a>
                     </Button>
                   </div>
                 </div>
 
-                {project.featured && (
-                  <div className="p-8 md:p-10 bg-secondary/30 border-t md:border-t-0 md:border-l border-border">
-                    <h5 className="text-sm font-semibold text-primary mb-4">Key Features</h5>
-                    <ul className="space-y-2 mb-6">
-                      {project.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <ArrowUpRight className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                <p className="text-foreground/80 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
 
-                    <h5 className="text-sm font-semibold text-primary mb-2">Architecture</h5>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {project.architecture}
-                    </p>
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs bg-muted text-foreground/80 rounded hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

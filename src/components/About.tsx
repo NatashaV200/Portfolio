@@ -1,53 +1,55 @@
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-16 md:py-20 lg:py-24 bg-muted/50">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading">About Me</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-8">
-            Building software that <span className="gradient-text">solves real problems</span>
-          </h3>
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 opacity-0 animate-fade-up">
+            About Me
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 opacity-0 animate-fade-up animation-delay-100">
+            Building software that solves real problems
+          </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-2 space-y-6 text-muted-foreground text-lg leading-relaxed">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {/* Bio */}
+            <div className="md:col-span-2 space-y-5 text-foreground/80 leading-relaxed opacity-0 animate-slide-left animation-delay-200">
               <p>
-                I'm Faith Natasha, a full-stack developer with a passion for crafting 
-                clean, efficient, and scalable web applications. My journey in software 
-                engineering started with curiosity about how digital products work—and 
-                evolved into a career building them from the ground up.
+                I'm Faith Natasha, a full-stack developer with a passion for
+                crafting clean, efficient, and scalable web applications. My
+                journey in software engineering started with curiosity about how
+                digital products work—and evolved into a career building them
+                from the ground up.
               </p>
               <p>
-                I specialize in the <span className="text-foreground">JavaScript ecosystem</span>, 
-                working primarily with React for dynamic frontends and Node.js for robust 
-                backend services. I approach every project with a full-stack mindset, 
-                considering not just the UI, but also the API design, database architecture, 
-                and deployment pipeline.
+                I specialize in the JavaScript ecosystem, working primarily with
+                React for dynamic frontends and Node.js for robust backend
+                services. I approach every project with a full-stack mindset,
+                considering the UI, API design, database architecture, and
+                deployment pipeline.
               </p>
               <p>
-                What drives me is the intersection of engineering excellence and user 
-                experience. I believe that great software should be invisible—users 
-                should achieve their goals without friction, backed by systems that 
-                are maintainable and performant.
-              </p>
-              <p>
-                When I'm not coding, I'm exploring new technologies, contributing to 
-                open source, or diving into system design concepts that help me build 
-                better architectures.
+                What drives me is the intersection of engineering excellence and
+                user experience. I believe that great software should be
+                invisible—users should achieve their goals without friction,
+                backed by systems that are maintainable and performant.
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-card border border-border card-hover">
-                <div className="text-4xl font-bold text-primary mb-2">4+</div>
-                <div className="text-muted-foreground">Years of Experience</div>
+            {/* Stats */}
+            <div className="flex flex-row md:flex-col gap-4">
+              <div className="flex-1 p-5 rounded-lg bg-background border border-border hover-lift opacity-0 animate-scale-up animation-delay-300">
+                <div className="text-3xl font-bold text-primary mb-1">4+</div>
+                <div className="text-sm text-foreground/70">
+                  Years Experience
+                </div>
               </div>
-              <div className="p-6 rounded-xl bg-card border border-border card-hover">
-                <div className="text-4xl font-bold text-primary mb-2">20+</div>
-                <div className="text-muted-foreground">Projects Completed</div>
+              <div className="flex-1 p-5 rounded-lg bg-background border border-border hover-lift opacity-0 animate-scale-up animation-delay-400">
+                <div className="text-3xl font-bold text-primary mb-1">20+</div>
+                <div className="text-sm text-foreground/70">Projects Built</div>
               </div>
-              <div className="p-6 rounded-xl bg-card border border-border card-hover">
-                <div className="text-4xl font-bold text-primary mb-2">15+</div>
-                <div className="text-muted-foreground">Happy Clients</div>
+              <div className="flex-1 p-5 rounded-lg bg-background border border-border hover-lift opacity-0 animate-scale-up animation-delay-500">
+                <div className="text-3xl font-bold text-primary mb-1">15+</div>
+                <div className="text-sm text-foreground/70">Happy Clients</div>
               </div>
             </div>
           </div>
