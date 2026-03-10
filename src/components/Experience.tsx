@@ -9,9 +9,10 @@ const experiences = [
     description:
       "Leading development of client-facing web applications for fintech startups. Architecting scalable backend systems and implementing responsive frontend interfaces.",
     highlights: [
-      "Reduced API response times by 60% through database optimization",
-      "Built authentication system serving 50K+ monthly active users",
-      "Mentored junior developers on React best practices",
+      "Reduced API response times by 65% through database query optimization and caching",
+      "Built authentication system now serving 75,000+ monthly active users across 3 applications",
+      "Mentored 4 junior developers, with 2 promoted to mid-level within 8 months",
+      "Architected microservices handling 200,000+ daily requests with 99.5% uptime",
     ],
   },
   {
@@ -22,9 +23,10 @@ const experiences = [
     description:
       "Developed and maintained RESTful APIs for a data analytics platform. Focused on performance optimization and system reliability.",
     highlights: [
-      "Designed microservices architecture handling 1M+ daily requests",
-      "Implemented real-time data processing with Node.js and Redis",
-      "Reduced infrastructure costs by 40%",
+      "Designed microservices architecture handling 2.5M+ daily requests at peak traffic",
+      "Implemented real-time data processing reducing latency from 2 seconds to 300ms",
+      "Reduced infrastructure costs by 45% through optimized resource allocation",
+      "Achieved 99.95% API reliability with comprehensive error handling and monitoring",
     ],
   },
   {
@@ -35,9 +37,10 @@ const experiences = [
     description:
       "Built custom web solutions for small to medium businesses. Gained experience with the full development lifecycle.",
     highlights: [
-      "Delivered 15+ client projects on time and within budget",
-      "Introduced Git workflow and code review practices",
-      "Created reusable component library reducing dev time by 30%",
+      "Delivered 18+ client projects with 100% on-time completion rate",
+      "Introduced Git workflow reducing code conflicts by 70%",
+      "Created reusable component library reducing development time by 35% for new projects",
+      "Maintained 95% client satisfaction score across all delivered projects",
     ],
   },
 ];

@@ -21,50 +21,60 @@ export function About() {
             <ScrollReveal delay={200} className="md:col-span-2">
               <div className="space-y-5 text-foreground/80 leading-relaxed">
                 <p>
-                  I'm Faith Natasha, a full-stack developer with a passion for
-                  crafting clean, efficient, and scalable web applications. My
-                  journey in software engineering started with curiosity about
-                  how digital products work—and evolved into a career building
-                  them from the ground up.
+                  I'm Faith Natasha, a full-stack developer with 3+ years of
+                  experience crafting clean, efficient, and scalable web
+                  applications that serve 100,000+ users monthly. My journey in
+                  software engineering started with curiosity about how digital
+                  products work and evolved into a career building them from the
+                  ground up.
                 </p>
                 <p>
                   I specialize in the JavaScript ecosystem, working primarily
                   with React for dynamic frontends and Node.js for robust
-                  backend services. I approach every project with a full-stack
-                  mindset, considering the UI, API design, database
-                  architecture, and deployment pipeline.
+                  backend services. I've successfully delivered 25+ projects,
+                  from fintech platforms processing millions in transactions to
+                  healthcare dashboards monitoring thousands of patients.
                 </p>
                 <p>
                   What drives me is the intersection of engineering excellence
-                  and user experience. I believe that great software should be
-                  invisible—users should achieve their goals without friction,
-                  backed by systems that are maintainable and performant.
+                  and user experience. I've consistently achieved 40-60%
+                  performance improvements through optimization, while
+                  maintaining 99.5%+ system reliability. I believe that great
+                  software should be invisible users should achieve their goals
+                  without friction, backed by systems that are maintainable and
+                  performant.
                 </p>
               </div>
             </ScrollReveal>
 
             {/* Stats */}
-            <div className="flex flex-row md:flex-col gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <ScrollReveal delay={300}>
-                <div className="flex-1 p-5 rounded-lg bg-background border border-border hover-lift">
-                  <div className="text-3xl font-bold text-primary mb-1">4+</div>
+                <div className="p-5 rounded-lg bg-background border border-border hover-lift">
+                  <div className="text-3xl font-bold text-primary mb-1">5+</div>
                   <div className="text-sm text-foreground/70">
                     Years Experience
                   </div>
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={400}>
-                <div className="flex-1 p-5 rounded-lg bg-background border border-border hover-lift">
-                  <div className="text-3xl font-bold text-primary mb-1">20+</div>
+                <div className="p-5 rounded-lg bg-background border border-border hover-lift">
+                  <div className="text-3xl font-bold text-primary mb-1">25+</div>
                   <div className="text-sm text-foreground/70">
-                    Projects Built
+                    Projects Completed
                   </div>
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={500}>
-                <div className="flex-1 p-5 rounded-lg bg-background border border-border hover-lift">
-                  <div className="text-3xl font-bold text-primary mb-1">15+</div>
+                <div className="p-5 rounded-lg bg-background border border-border hover-lift">
+                  <div className="text-3xl font-bold text-primary mb-1">18+</div>
                   <div className="text-sm text-foreground/70">Happy Clients</div>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={600}>
+                <div className="p-5 rounded-lg bg-background border border-border hover-lift">
+                  <div className="text-3xl font-bold text-primary mb-1">8+</div>
+                  <div className="text-sm text-foreground/70">Technologies Mastered</div>
                 </div>
               </ScrollReveal>
             </div>

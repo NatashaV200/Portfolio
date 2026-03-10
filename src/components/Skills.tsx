@@ -11,11 +11,15 @@ const skillCategories = [
   },
   {
     title: "Database",
-    skills: ["PostgreSQL", "MongoDB", "Prisma", "Redis"],
+    skills: ["PostgreSQL", "MongoDB", "Prisma", "Redis", "Database Design"],
   },
   {
     title: "Tools & DevOps",
-    skills: ["Git", "Docker", "AWS", "Vercel", "CI/CD"],
+    skills: ["Git", "Docker", "AWS", "Vercel", "CI/CD Pipelines"],
+  },
+  {
+    title: "Languages",
+    skills: ["JavaScript/TypeScript", "Python", "SQL", "HTML/CSS"],
   },
 ];
 
@@ -35,14 +39,28 @@ export function Skills() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-foreground/70 text-center mb-8 max-w-2xl mx-auto">
               Technologies I work with to build modern web applications.
             </p>
           </ScrollReveal>
 
+          <ScrollReveal delay={300}>
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                ⚡ Web Performance & Core Web Vitals
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                ♿ Accessibility (WCAG 2.1)
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                🧪 Automated Testing
+              </span>
+            </div>
+          </ScrollReveal>
+
           <div className="grid sm:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
-              <ScrollReveal key={category.title} delay={300 + index * 100}>
+              <ScrollReveal key={category.title} delay={400 + index * 100}>
                 <div className="p-6 rounded-lg bg-background border border-border hover-lift">
                   <h3 className="text-lg font-semibold text-foreground mb-4">
                     {category.title}
