@@ -1,10 +1,12 @@
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Check, Copy, Github, Linkedin, Mail, MapPin, Send, Twitter } from "lucide-react";
 import { useState } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+
+const CONTACT_EMAIL = "faithnatasha2024@gmail.com";
 
 export function Contact() {
   const { toast } = useToast();
@@ -12,10 +14,10 @@ export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [copied, setCopied] = useState(false);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -28,10 +30,6 @@ export function Contact() {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email";
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
     }
 
     if (!formData.message.trim()) {
@@ -56,8 +54,25 @@ export function Contact() {
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", message: "" });
     setIsSubmitting(false);
+  };
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setCopied(true);
+      toast({
+        title: "Email copied",
+        description: "Email address copied to clipboard.",
+      });
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast({
+        title: "Copy failed",
+        description: "Please copy the email manually.",
+      });
+    }
   };
 
   const handleChange = (
@@ -94,18 +109,29 @@ export function Contact() {
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
             <ScrollReveal delay={300} className="lg:col-span-2">
-              <div className="space-y-6">
+              <div className="space-y-6 rounded-xl border border-border bg-background p-6">
                 <div>
                   <h3 className="text-base font-semibold text-foreground mb-4">
                     Contact Information
                   </h3>
                   <div className="space-y-4">
-                    <a
-                      href="mailto:faith@example.com"
-                      className="flex items-center gap-3 text-foreground/70 hover:text-foreground transition-colors group">
-                      <Mail className="h-5 w-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
-                      <span>faithnatasha2024@gmail.com</span>
-                    </a>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={copyEmail}
+                      className="w-full justify-between gap-2 h-auto py-3 px-4 text-left hover:border-primary/50">
+                      <span className="flex items-center gap-3 min-w-0">
+                        <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="truncate text-foreground/80">
+                          {CONTACT_EMAIL}
+                        </span>
+                      </span>
+                      {copied ? (
+                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                      ) : (
+                        <Copy className="h-4 w-4 text-foreground/70 flex-shrink-0" />
+                      )}
+                    </Button>
                     <div className="flex items-center gap-3 text-foreground/70">
                       <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
                       <span>Available for Remote Work</span>
@@ -134,6 +160,14 @@ export function Contact() {
                       aria-label="LinkedIn">
                       <Linkedin size={18} />
                     </a>
+                    <a
+                      href="https://x.com/faithnatasha"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors"
+                      aria-label="Twitter/X">
+                      <Twitter size={18} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -141,68 +175,48 @@ export function Contact() {
 
             {/* Contact Form */}
             <ScrollReveal delay={350} className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2">
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      className={`transition-shadow focus:shadow-md ${errors.name ? "border-destructive" : ""}`}
-                    />
-                    {errors.name && (
-                      <p className="text-sm text-destructive mt-1">
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2">
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your@email.com"
-                      className={`transition-shadow focus:shadow-md ${errors.email ? "border-destructive" : ""}`}
-                    />
-                    {errors.email && (
-                      <p className="text-sm text-destructive mt-1">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 rounded-xl border border-border bg-background p-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground mb-2">
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className={`transition-shadow focus:shadow-md ${errors.name ? "border-destructive" : ""}`}
+                  />
+                  {errors.name && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
 
                 <div>
                   <label
-                    htmlFor="subject"
+                    htmlFor="email"
                     className="block text-sm font-medium text-foreground mb-2">
-                    Subject
+                    Email
                   </label>
                   <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    placeholder="What's this about?"
-                    className={`transition-shadow focus:shadow-md ${errors.subject ? "border-destructive" : ""}`}
+                    placeholder="your@email.com"
+                    className={`transition-shadow focus:shadow-md ${errors.email ? "border-destructive" : ""}`}
                   />
-                  {errors.subject && (
+                  {errors.email && (
                     <p className="text-sm text-destructive mt-1">
-                      {errors.subject}
+                      {errors.email}
                     </p>
                   )}
                 </div>
