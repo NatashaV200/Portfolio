@@ -190,10 +190,12 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
+                    aria-describedby={errors.name ? "name-error" : undefined}
+                    aria-invalid={!!errors.name}
                     className={`transition-shadow focus:shadow-md ${errors.name ? "border-destructive" : ""}`}
                   />
                   {errors.name && (
-                    <p className="text-sm text-destructive mt-1">
+                    <p id="name-error" role="alert" className="text-sm text-destructive mt-1">
                       {errors.name}
                     </p>
                   )}
@@ -212,10 +214,12 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
+                    aria-describedby={errors.email ? "email-error" : undefined}
+                    aria-invalid={!!errors.email}
                     className={`transition-shadow focus:shadow-md ${errors.email ? "border-destructive" : ""}`}
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive mt-1">
+                    <p id="email-error" role="alert" className="text-sm text-destructive mt-1">
                       {errors.email}
                     </p>
                   )}
@@ -234,10 +238,12 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Tell me about your project..."
                     rows={5}
+                    aria-describedby={errors.message ? "message-error" : undefined}
+                    aria-invalid={!!errors.message}
                     className={`transition-shadow focus:shadow-md ${errors.message ? "border-destructive" : ""}`}
                   />
                   {errors.message && (
-                    <p className="text-sm text-destructive mt-1">
+                    <p id="message-error" role="alert" className="text-sm text-destructive mt-1">
                       {errors.message}
                     </p>
                   )}

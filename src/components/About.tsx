@@ -48,7 +48,7 @@ export function About() {
             </ScrollReveal>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <ScrollReveal delay={300}>
                 <div className="p-5 rounded-lg bg-background border border-border hover-lift">
                   <div className="text-3xl font-bold text-primary mb-1">5+</div>

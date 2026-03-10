@@ -55,7 +55,9 @@ export function Navbar() {
             <button
               className="text-foreground p-2 -m-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu">
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav">
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -63,7 +65,11 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
+          <nav
+            id="mobile-nav"
+            role="navigation"
+            aria-label="Mobile navigation"
+            className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
             <div className="flex flex-col px-6 py-4 gap-1">
               {navItems.map((item) => (
                 <a
@@ -75,7 +81,7 @@ export function Navbar() {
                 </a>
               ))}
             </div>
-          </div>
+          </nav>
         )}
       </div>
     </nav>
