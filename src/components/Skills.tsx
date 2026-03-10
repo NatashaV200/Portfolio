@@ -1,3 +1,5 @@
+import { ScrollReveal } from "./ScrollReveal";
+
 const skillCategories = [
   {
     title: "Frontend",
@@ -22,35 +24,40 @@ export function Skills() {
     <section id="skills" className="py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center opacity-0 animate-fade-up">
-            Skills
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">
-            Technical Expertise
-          </h2>
-          <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up animation-delay-200">
-            Technologies I work with to build modern web applications.
-          </p>
+          <ScrollReveal>
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center">
+              Skills
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center">
+              Technical Expertise
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto">
+              Technologies I work with to build modern web applications.
+            </p>
+          </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
-              <div
-                key={category.title}
-                className={`p-6 rounded-lg bg-background border border-border hover-lift opacity-0 animate-fade-up`}
-                style={{ animationDelay: `${300 + index * 100}ms` }}>
-                <h3 className="text-lg font-semibold text-foreground mb-4">
-                  {category.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 text-sm bg-muted text-foreground rounded-md hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
-                      {skill}
-                    </span>
-                  ))}
+              <ScrollReveal key={category.title} delay={300 + index * 100}>
+                <div className="p-6 rounded-lg bg-background border border-border hover-lift">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">
+                    {category.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 text-sm bg-muted text-foreground rounded-md hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-default">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

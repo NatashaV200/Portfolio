@@ -1,4 +1,5 @@
 import { Github } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 import { Button } from "./ui/button";
 
 const projects = [
@@ -37,59 +38,64 @@ export function Projects() {
     <section id="projects" className="py-16 md:py-20 lg:py-24 bg-muted/50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center opacity-0 animate-fade-up">
-            Projects
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">
-            Selected Work
-          </h2>
-          <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up animation-delay-200">
-            A selection of projects demonstrating full-stack development
-            capabilities.
-          </p>
+          <ScrollReveal>
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center">
+              Projects
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center">
+              Selected Work
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto">
+              A selection of projects demonstrating full-stack development
+              capabilities.
+            </p>
+          </ScrollReveal>
 
           <div className="grid gap-6">
             {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="p-6 rounded-lg bg-background border border-border hover-lift opacity-0 animate-fade-up"
-                style={{ animationDelay: `${300 + index * 100}ms` }}>
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                  <h3 className="text-xl font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <div className="flex gap-2 flex-shrink-0">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      asChild
-                      className="hover-scale">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View source code">
-                        <Github size={16} />
-                        <span className="ml-1">Code</span>
-                      </a>
-                    </Button>
+              <ScrollReveal key={project.title} delay={300 + index * 120}>
+                <div className="p-6 rounded-lg bg-background border border-border hover-lift">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-2 flex-shrink-0">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        asChild
+                        className="hover-scale">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="View source code">
+                          <Github size={16} />
+                          <span className="ml-1">Code</span>
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+
+                  <p className="text-foreground/80 mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 text-xs bg-muted text-foreground/80 rounded hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-default">
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-
-                <p className="text-foreground/80 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs bg-muted text-foreground/80 rounded hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
