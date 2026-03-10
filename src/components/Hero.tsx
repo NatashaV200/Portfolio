@@ -4,8 +4,14 @@ import { Button } from "./ui/button";
 export function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center relative pt-20 pb-16 md:pt-24 md:pb-20">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute -top-16 -left-12 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute top-24 right-[-4rem] h-64 w-64 sm:h-80 sm:w-80 rounded-full bg-blue-400/10 dark:bg-blue-300/10 blur-3xl" />
+        <div className="absolute bottom-8 left-1/3 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
+      </div>
+
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl relative z-10">
           {/* Greeting */}
           <p className="text-primary font-medium mb-4 text-sm tracking-wide opacity-0 animate-fade-up">
             Hi, my name is
@@ -13,10 +19,10 @@ export function Hero() {
 
           {/* Name and tagline */}
           <h1 className="opacity-0 animate-fade-up animation-delay-100">
-            <span className="block text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 tracking-tight">
+            <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-3 tracking-tight leading-[1.05] bg-gradient-to-r from-primary via-primary to-foreground dark:to-foreground bg-clip-text text-transparent">
               Faith Natasha
             </span>
-            <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground/70">
+            <span className="block text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground/85">
               Full-Stack Developer
             </span>
           </h1>
