@@ -53,7 +53,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
             <button
-              className="text-foreground p-2 -m-2"
+              className="text-foreground p-2.5 -m-2.5 h-11 w-11 flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -75,7 +75,7 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors py-3 text-base"
+                  className="text-foreground hover:text-primary transition-colors py-3 px-3 text-base min-h-11 flex items-center -mx-3"
                   onClick={() => setIsMobileMenuOpen(false)}>
                   {item.label}
                 </a>

@@ -19,10 +19,10 @@ export function Hero() {
 
           {/* Name and tagline */}
           <h1 className="opacity-0 animate-fade-up animation-delay-100">
-            <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-3 tracking-tight leading-[1.05] bg-gradient-to-r from-primary via-primary to-foreground dark:to-foreground bg-clip-text text-transparent">
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-3 tracking-tight leading-[1.05] bg-gradient-to-r from-primary via-primary to-foreground dark:to-foreground bg-clip-text text-transparent">
               Faith Natasha
             </span>
-            <span className="block text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground/85">
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground/85">
               Full-Stack Developer
             </span>
           </h1>

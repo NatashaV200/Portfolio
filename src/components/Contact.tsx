@@ -106,7 +106,7 @@ export function Contact() {
             </p>
           </ScrollReveal>
 
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Info */}
             <ScrollReveal delay={300} className="lg:col-span-2">
               <div className="space-y-6 rounded-xl border border-border bg-background p-6">
@@ -119,7 +119,7 @@ export function Contact() {
                       type="button"
                       variant="outline"
                       onClick={copyEmail}
-                      className="w-full justify-between gap-2 h-auto py-3 px-4 text-left hover:border-primary/50">
+                      className="w-full justify-between gap-2 h-12 sm:h-auto sm:py-3 px-4 text-left hover:border-primary/50">
                       <span className="flex items-center gap-3 min-w-0">
                         <Mail className="h-5 w-5 text-primary flex-shrink-0" />
                         <span className="truncate text-foreground/80">
@@ -143,12 +143,12 @@ export function Contact() {
                   <h3 className="text-base font-semibold text-foreground mb-4">
                     Social
                   </h3>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 flex-wrap">
                     <a
                       href="https://github.com/faith200"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors"
+                      className="p-3 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors min-h-11 min-w-11 flex items-center justify-center"
                       aria-label="GitHub">
                       <Github size={18} />
                     </a>
@@ -156,7 +156,7 @@ export function Contact() {
                       href="https://linkedin.com/in/faithnatasha"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors"
+                      className="p-3 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors min-h-11 min-w-11 flex items-center justify-center"
                       aria-label="LinkedIn">
                       <Linkedin size={18} />
                     </a>
@@ -164,7 +164,7 @@ export function Contact() {
                       href="https://x.com/faithnatasha"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors"
+                      className="p-3 rounded-md bg-background border border-border text-foreground/70 hover:text-foreground hover:border-primary/50 hover-scale transition-colors min-h-11 min-w-11 flex items-center justify-center"
                       aria-label="Twitter/X">
                       <Twitter size={18} />
                     </a>
