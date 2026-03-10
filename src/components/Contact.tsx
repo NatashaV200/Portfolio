@@ -73,7 +73,7 @@ export function Contact() {
     <section id="contact" className="py-16 md:py-20 lg:py-24 bg-muted/50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center opacity-0 animate-fade-up">
+          <p className="text-xl sm:text-2xl font-bold uppercase tracking-wide text-primary mb-3 text-center opacity-0 animate-fade-up">
             Contact
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">

@@ -39,7 +39,7 @@ export function Projects() {
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 text-center">
+            <p className="text-xl sm:text-2xl font-bold uppercase tracking-wide text-primary mb-3 text-center">
               Projects
             </p>
           </ScrollReveal>
