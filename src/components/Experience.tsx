@@ -1,3 +1,5 @@
+import { ScrollReveal } from "./ScrollReveal";
+
 const experiences = [
   {
     role: "Full-Stack Developer",
@@ -45,57 +47,62 @@ export function Experience() {
     <section id="experience" className="py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xl sm:text-2xl font-bold uppercase tracking-wide text-primary mb-3 text-center opacity-0 animate-fade-up">
-            Experience
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center opacity-0 animate-fade-up animation-delay-100">
-            Work History
-          </h2>
-          <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up animation-delay-200">
-            My professional journey building impactful software.
-          </p>
+          <ScrollReveal>
+            <p className="text-xl sm:text-2xl font-bold uppercase tracking-wide text-primary mb-3 text-center">
+              Experience
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 text-center">
+              Work History
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-foreground/70 text-center mb-12 max-w-2xl mx-auto">
+              My professional journey building impactful software.
+            </p>
+          </ScrollReveal>
 
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <div
-                key={exp.company}
-                className="relative pl-6 border-l-2 border-border opacity-0 animate-slide-left"
-                style={{ animationDelay: `${300 + index * 150}ms` }}>
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-primary animate-bounce-subtle" />
+              <ScrollReveal key={exp.company} delay={300 + index * 120}>
+                <div className="relative pl-6 border-l-2 border-border">
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-primary animate-bounce-subtle" />
 
-                <div className="pb-2">
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {exp.role}
-                    </h3>
-                    <span className="text-primary">{exp.company}</span>
+                  <div className="pb-2">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                      <h3 className="text-lg font-semibold text-foreground">
+                        {exp.role}
+                      </h3>
+                      <span className="text-primary">{exp.company}</span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 text-sm text-foreground/60 mb-3">
+                      <span>{exp.period}</span>
+                      <span>·</span>
+                      <span>{exp.type}</span>
+                    </div>
+
+                    <p className="text-foreground/80 mb-4 leading-relaxed">
+                      {exp.description}
+                    </p>
+
+                    <ul className="space-y-1.5">
+                      {exp.highlights.map((highlight) => (
+                        <li
+                          key={highlight}
+                          className="text-sm text-foreground/70 flex items-start gap-2">
+                          <span className="text-primary mt-1.5 flex-shrink-0">
+                            •
+                          </span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <div className="flex flex-wrap gap-2 text-sm text-foreground/60 mb-3">
-                    <span>{exp.period}</span>
-                    <span>·</span>
-                    <span>{exp.type}</span>
-                  </div>
-
-                  <p className="text-foreground/80 mb-4 leading-relaxed">
-                    {exp.description}
-                  </p>
-
-                  <ul className="space-y-1.5">
-                    {exp.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="text-sm text-foreground/70 flex items-start gap-2">
-                        <span className="text-primary mt-1.5 flex-shrink-0">
-                          •
-                        </span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

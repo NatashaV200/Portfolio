@@ -13,6 +13,7 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -26,9 +27,18 @@ export function ScrollReveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        const isScrollingDown = window.scrollY >= lastScrollYRef.current;
+        lastScrollYRef.current = window.scrollY;
+
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
+          if (isScrollingDown) {
+            setIsVisible(false);
+            requestAnimationFrame(() => setIsVisible(true));
+          } else {
+            setIsVisible(true);
+          }
+        } else {
+          setIsVisible(false);
         }
       },
       {
